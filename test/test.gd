@@ -3,7 +3,19 @@ extends EditorScript
 
 
 func _run() -> void:
-	save_icon("ResourcePreloader")
+	var variables := {
+		"q": "1.0",
+		"m": "1.0",
+		"B": "1.0",
+		"R": "100.0",
+		"v": "2 * q * B * R / m",
+		"theta": "PI / 2.0",
+		"g": "9.8",
+		"a": "g * sin(theta)"
+	}
+	SceneReader.parse_variables(variables)
+	
+#	save_icon("ResourcePreloader")
 
 func save_icon(what: String) -> void:
 	var theme := get_editor_interface().get_base_control().theme

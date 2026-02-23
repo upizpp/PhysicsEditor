@@ -5,7 +5,7 @@ export var mass: float = 1.0
 export var charge := 0.0 setget set_charge
 export var velocity := Vector2.ZERO
 export var no_gravitation: bool = false
-export var no_coulom: bool = false
+export var no_coulomb: bool = false
 
 func set_charge(v: float):
 	charge = v

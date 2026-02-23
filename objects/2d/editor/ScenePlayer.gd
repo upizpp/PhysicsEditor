@@ -78,9 +78,13 @@ func create(scene: Array, variables: Dictionary):
 					for p in data["properties"][property]:
 						tracker.set(p, data["properties"][property][p])
 				elif property == "gravitation":
-					obj.add_child(GravitationField2D.new())
+					var x := GravitationField2D.new()
+					x.field_source_path = obj.get_path()
+					obj.add_child(x)
 				elif property == "coulomb":
-					obj.add_child(CoulombFieldField2D.new())
+					var x := CoulombFieldField2D.new()
+					x.field_source_path = obj.get_path()
+					obj.add_child(x)
 				else:
 					if data["properties"][property] is String:
 						expr.parse(data["properties"][property], variables.keys())

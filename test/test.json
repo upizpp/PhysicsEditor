@@ -1,34 +1,40 @@
 {
-	"variables": {
-		"q": "5.0",
-		"B": "1.0"
-	},
-	"scene": [
-		{
-			"name": "field",
-			"type": "magnetic",
-			"properties": {
-				"position": "Vector2( 640, 320 )",
-				"size": "Vector2( 1280, 640 )",
-				"strength": "B",
-				"direction": "1"
-			},
-			"shape": "matrix",
-			"__bind__": null
-		},
-		{
-			"name": "test",
-			"type": "object",
-			"properties": {
-				"radius": "8.0",
-				"position": "Vector2( 369, 164 )",
-				"velocity": "Vector2( 500, 0 )",
-				"charge": "q",
-				"track": {
-					"default_color": "Color(0.0,0.0,0.0)"
-				}
-			},
-			"__bind__": null
-		}
-	]
+    "variables": {
+        "q": "1.0",
+        "m": "1.0",
+        "B": "1.0",
+        "R": "100.0",
+        "v": "2 * q * B * R / m",
+        "theta": "PI / 2.0",
+        "g": "9.8",
+        "a": "g * sin(theta)"
+    },
+    "scene": [
+        {
+            "name": "field",
+            "type": "magnetic",
+            "properties": {
+                "position": "Vector2( 640, 320 )",
+                "size": "Vector2( 1280, 640 )",
+                "strength": "B",
+                "direction": "1"
+            },
+            "shape": "matrix",
+            "__bind__": null
+        },
+        {
+            "name": "test",
+            "type": "object",
+            "properties": {
+                "radius": "8.0",
+                "position": "Vector2( 369, 164 )",
+                "velocity": "Vector2( 500, 0 )",
+                "charge": "q",
+                "track": {
+                    "default_color": "Color(0.0,0.0,0.0)"
+                }
+            },
+            "__bind__": null
+        }
+    ]
 }

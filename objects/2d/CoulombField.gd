@@ -15,7 +15,7 @@ func set_field_source(v: NodePath):
 var field_source: PhysicsObject2D
 
 func enforce(obj: PhysicsObject2D) -> void:
-	if obj.no_coulom:
+	if obj.no_coulomb:
 		return
 	if not field_source:
 		field_source = get_parent()

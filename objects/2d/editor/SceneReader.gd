@@ -90,6 +90,34 @@ static func tokenize(expr: String) -> Array:
 		elif i == expr.length() or not expr[i].is_valid_identifier():
 			res.push_back(expr.substr(begin, i - begin))
 			begin = -1
+	return filter(res, [
+		"PI",
+		"TAU",
+		"asin",
+		"sin",
+		"sinh",
+		"acos",
+		"cos",
+		"cosh",
+		"atan",
+		"atan2",
+		"tan",
+		"tanh",
+		"pow",
+		"log",
+		"randi",
+		"randf",
+		"exp",
+		"floor",
+		"ceil",
+		"abs",
+	])
+
+static func filter(arr: Array, filter: Array) -> Array:
+	var res := []
+	for item in arr:
+		if not item in filter:
+			res.append(item)
 	return res
 
 static func var2json(value):
