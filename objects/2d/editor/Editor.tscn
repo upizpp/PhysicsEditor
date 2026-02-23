@@ -1,0 +1,240 @@
+[gd_scene load_steps=36 format=2]
+
+[ext_resource path="res://objects/2d/editor/SceneEditor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://objects/2d/editor/VariantsEditor.tscn" type="PackedScene" id=2]
+[ext_resource path="res://objects/2d/editor/PropertyEditor.tscn" type="PackedScene" id=3]
+[ext_resource path="res://assets/physics_editor.tres" type="Theme" id=4]
+[ext_resource path="res://assets/style_box/light.tres" type="StyleBox" id=5]
+[ext_resource path="res://objects/2d/editor/Editor.gd" type="Script" id=6]
+[ext_resource path="res://assets/style_box/dark.tres" type="StyleBox" id=7]
+[ext_resource path="res://objects/2d/editor/ScenePreview.tscn" type="PackedScene" id=8]
+[ext_resource path="res://objects/2d/editor/ReversedHSplitContainer.gd" type="Script" id=9]
+[ext_resource path="res://assets/textures/play.png" type="Texture" id=10]
+[ext_resource path="res://assets/textures/play_hover.png" type="Texture" id=11]
+[ext_resource path="res://assets/textures/play_pressed.png" type="Texture" id=12]
+[ext_resource path="res://assets/textures/save_hover.png" type="Texture" id=13]
+[ext_resource path="res://assets/textures/save.png" type="Texture" id=14]
+[ext_resource path="res://assets/textures/save_pressed.png" type="Texture" id=15]
+[ext_resource path="res://assets/textures/open_pressed.png" type="Texture" id=16]
+[ext_resource path="res://assets/textures/new.png" type="Texture" id=17]
+[ext_resource path="res://assets/textures/open_hover.png" type="Texture" id=18]
+[ext_resource path="res://assets/textures/open.png" type="Texture" id=19]
+[ext_resource path="res://assets/textures/new_hover.png" type="Texture" id=20]
+[ext_resource path="res://assets/textures/new_pressed.png" type="Texture" id=21]
+[ext_resource path="res://assets/textures/save_to_pressed.png" type="Texture" id=22]
+[ext_resource path="res://assets/textures/save_to.png" type="Texture" id=23]
+[ext_resource path="res://assets/textures/save_to_hover.png" type="Texture" id=24]
+
+[sub_resource type="InputEventKey" id=2]
+pressed = true
+scancode = 16777248
+
+[sub_resource type="ShortCut" id=3]
+shortcut = SubResource( 2 )
+
+[sub_resource type="InputEventKey" id=8]
+control = true
+command = true
+pressed = true
+scancode = 78
+
+[sub_resource type="ShortCut" id=9]
+shortcut = SubResource( 8 )
+
+[sub_resource type="InputEventKey" id=6]
+control = true
+command = true
+pressed = true
+scancode = 79
+
+[sub_resource type="ShortCut" id=7]
+shortcut = SubResource( 6 )
+
+[sub_resource type="InputEventKey" id=4]
+control = true
+command = true
+pressed = true
+scancode = 83
+
+[sub_resource type="ShortCut" id=5]
+shortcut = SubResource( 4 )
+
+[sub_resource type="InputEventKey" id=10]
+shift = true
+control = true
+command = true
+pressed = true
+scancode = 83
+
+[sub_resource type="ShortCut" id=11]
+shortcut = SubResource( 10 )
+
+[sub_resource type="Theme" id=1]
+
+[node name="Editor" type="VBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 4 )
+custom_constants/separation = 0
+script = ExtResource( 6 )
+
+[node name="Head" type="PanelContainer" parent="."]
+margin_right = 1280.0
+margin_bottom = 24.0
+custom_styles/panel = ExtResource( 7 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Head"]
+margin_left = 16.0
+margin_top = 4.0
+margin_right = 1264.0
+margin_bottom = 20.0
+
+[node name="Left" type="HBoxContainer" parent="Head/HBoxContainer"]
+margin_bottom = 16.0
+size_flags_horizontal = 2
+
+[node name="Right" type="HBoxContainer" parent="Head/HBoxContainer"]
+margin_left = 1104.0
+margin_right = 1248.0
+margin_bottom = 16.0
+size_flags_horizontal = 10
+custom_constants/separation = 16
+
+[node name="Run" type="TextureButton" parent="Head/HBoxContainer/Right"]
+margin_right = 16.0
+margin_bottom = 16.0
+hint_tooltip = "运行"
+shortcut = SubResource( 3 )
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 11 )
+
+[node name="New" type="TextureButton" parent="Head/HBoxContainer/Right"]
+margin_left = 32.0
+margin_right = 48.0
+margin_bottom = 16.0
+hint_tooltip = "新建"
+shortcut = SubResource( 9 )
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 21 )
+texture_hover = ExtResource( 20 )
+
+[node name="Open" type="TextureButton" parent="Head/HBoxContainer/Right"]
+margin_left = 64.0
+margin_right = 80.0
+margin_bottom = 16.0
+hint_tooltip = "打开"
+shortcut = SubResource( 7 )
+texture_normal = ExtResource( 19 )
+texture_pressed = ExtResource( 16 )
+texture_hover = ExtResource( 18 )
+
+[node name="Save" type="TextureButton" parent="Head/HBoxContainer/Right"]
+margin_left = 96.0
+margin_right = 112.0
+margin_bottom = 16.0
+hint_tooltip = "保存"
+shortcut = SubResource( 5 )
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 15 )
+texture_hover = ExtResource( 13 )
+
+[node name="SaveTo" type="TextureButton" parent="Head/HBoxContainer/Right"]
+margin_left = 128.0
+margin_right = 144.0
+margin_bottom = 16.0
+hint_tooltip = "保存为"
+shortcut = SubResource( 11 )
+texture_normal = ExtResource( 23 )
+texture_pressed = ExtResource( 22 )
+texture_hover = ExtResource( 24 )
+
+[node name="Body" type="PanelContainer" parent="."]
+margin_top = 24.0
+margin_right = 1280.0
+margin_bottom = 640.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = ExtResource( 7 )
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Body"]
+margin_left = 16.0
+margin_top = 4.0
+margin_right = 1264.0
+margin_bottom = 612.0
+theme = SubResource( 1 )
+split_offset = 640
+script = ExtResource( 9 )
+
+[node name="ScenePreview" parent="Body/HSplitContainer" instance=ExtResource( 8 )]
+unique_name_in_owner = true
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 640.0
+margin_bottom = 608.0
+
+[node name="HSplitContainer" type="HSplitContainer" parent="Body/HSplitContainer"]
+margin_left = 652.0
+margin_right = 1248.0
+margin_bottom = 608.0
+split_offset = 350
+script = ExtResource( 9 )
+
+[node name="TabContainer1" type="TabContainer" parent="Body/HSplitContainer/HSplitContainer"]
+margin_right = 366.0
+margin_bottom = 608.0
+
+[node name="PropertyEditor" parent="Body/HSplitContainer/HSplitContainer/TabContainer1" instance=ExtResource( 3 )]
+unique_name_in_owner = true
+anchor_right = 1.0
+margin_left = 4.0
+margin_top = 37.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="VariablesEditor" parent="Body/HSplitContainer/HSplitContainer/TabContainer1" instance=ExtResource( 2 )]
+unique_name_in_owner = true
+visible = false
+anchor_right = 1.0
+margin_left = 4.0
+margin_top = 35.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="TabContainer2" type="TabContainer" parent="Body/HSplitContainer/HSplitContainer"]
+margin_left = 378.0
+margin_right = 596.0
+margin_bottom = 608.0
+
+[node name="SceneEditor" parent="Body/HSplitContainer/HSplitContainer/TabContainer2" instance=ExtResource( 1 )]
+unique_name_in_owner = true
+anchor_right = 1.0
+margin_left = 4.0
+margin_top = 37.0
+margin_right = -4.0
+margin_bottom = -4.0
+custom_styles/panel = ExtResource( 5 )
+
+[node name="FileDialog" type="FileDialog" parent="."]
+margin_top = 492.0
+margin_right = 1280.0
+margin_bottom = 640.0
+window_title = "打开文件"
+mode = 0
+access = 2
+filters = PoolStringArray( "*.json", "*.tres" )
+show_hidden_files = true
+
+[node name="WarningDialog" type="AcceptDialog" parent="."]
+margin_right = 96.0
+margin_bottom = 64.0
+window_title = "警告！"
+
+[connection signal="pressed" from="Head/HBoxContainer/Right/Run" to="." method="_on_Run_pressed"]
+[connection signal="pressed" from="Head/HBoxContainer/Right/New" to="." method="_on_New_pressed"]
+[connection signal="pressed" from="Head/HBoxContainer/Right/Open" to="." method="_on_Open_pressed"]
+[connection signal="pressed" from="Head/HBoxContainer/Right/Save" to="." method="_on_Save_pressed"]
+[connection signal="pressed" from="Head/HBoxContainer/Right/SaveTo" to="." method="_on_SaveTo_pressed"]
+[connection signal="remove" from="Body/HSplitContainer/HSplitContainer/TabContainer2/SceneEditor" to="." method="_on_SceneEditor_remove"]
+[connection signal="select" from="Body/HSplitContainer/HSplitContainer/TabContainer2/SceneEditor" to="." method="_on_SceneEditor_select"]
+[connection signal="file_selected" from="FileDialog" to="." method="_on_FileDialog_file_selected"]

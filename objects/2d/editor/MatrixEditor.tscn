@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://objects/2d/editor/MatrixEditor.gd" type="Script" id=1]
+
+[node name="MatrixEditor" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="UpControl" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_default_cursor_shape = 9
+
+[node name="DownControl" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_default_cursor_shape = 9
+
+[node name="LeftControl" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_default_cursor_shape = 10
+
+[node name="RightControl" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_default_cursor_shape = 10
+
+[node name="CenterControl" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0
+mouse_default_cursor_shape = 13
+
+[connection signal="gui_input" from="UpControl" to="." method="_on_gui_input" binds= [ 0 ]]
+[connection signal="gui_input" from="DownControl" to="." method="_on_gui_input" binds= [ 1 ]]
+[connection signal="gui_input" from="LeftControl" to="." method="_on_gui_input" binds= [ 2 ]]
+[connection signal="gui_input" from="RightControl" to="." method="_on_gui_input" binds= [ 3 ]]
+[connection signal="gui_input" from="CenterControl" to="." method="_on_gui_input" binds= [ 4 ]]

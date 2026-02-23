@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://objects/2d/ElectricField2D.tscn" type="PackedScene" id=1]
+[ext_resource path="res://objects/2d/MatrixElectricField2D.gd" type="Script" id=2]
+[ext_resource path="res://assets/textures/pixel.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 0.5, 0.5 )
+
+[node name="MatrixElectricField2D" instance=ExtResource( 1 )]
+position = Vector2( 154, 123 )
+script = ExtResource( 2 )
+strength = 1.0
+size = Vector2( 256, 128 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+shape = SubResource( 1 )
+
+[node name="Light2D" type="Light2D" parent="." index="1"]
+texture = ExtResource( 3 )
+mode = 2

@@ -1,0 +1,48 @@
+{
+	"variables": {
+		"B": "1",
+		"q": "5",
+		"m": "1",
+		"E": "200"
+	},
+	"scene": [
+		{
+			"name": "MagneticField",
+			"type": "magnetic",
+			"properties": {
+				"position": "Vector2( 640, 160 )",
+				"size": "Vector2( 1280, 320 )",
+				"strength": "B",
+				"direction": "1"
+			},
+			"shape": "matrix",
+			"__bind__": null
+		},
+		{
+			"name": "ElectricField",
+			"type": "electric",
+			"properties": {
+				"position": "Vector2( 640, 480 )",
+				"size": "Vector2( 1280, 320 )",
+				"direction_degrees": "270",
+				"strength": "E"
+			},
+			"shape": "matrix",
+			"__bind__": null
+		},
+		{
+			"name": "PhysicsObject",
+			"type": "object",
+			"properties": {
+				"radius": "8.0",
+				"position": "Vector2( 119, 436.667 )",
+				"charge": "q",
+				"track": {
+					"default_color": "Color(0.0,0.0,0.0)"
+				},
+				"mass": "m"
+			},
+			"__bind__": null
+		}
+	]
+}

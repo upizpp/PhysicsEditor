@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://objects/2d/MagneticField2D.tscn" type="PackedScene" id=1]
+[ext_resource path="res://objects/2d/CircleMagneticField2D.gd" type="Script" id=2]
+[ext_resource path="res://objects/2d/ViewportCircle.gd" type="Script" id=3]
+[ext_resource path="res://objects/2d/Points2D.gd" type="Script" id=4]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 1.0
+
+[sub_resource type="ViewportTexture" id=2]
+viewport_path = NodePath("ViewportCircle")
+
+[node name="CircleMagneticFiled2D" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
+radius = 128.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+shape = SubResource( 1 )
+
+[node name="ViewportCircle" type="Viewport" parent="." index="1"]
+transparent_bg = true
+script = ExtResource( 3 )
+
+[node name="Light2D" type="Light2D" parent="." index="2"]
+texture = SubResource( 2 )
+mode = 2
+
+[node name="Points2D" type="Node2D" parent="." index="3"]
+script = ExtResource( 4 )

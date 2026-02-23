@@ -1,0 +1,30 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://objects/2d/ElectricField2D.tscn" type="PackedScene" id=1]
+[ext_resource path="res://objects/2d/ViewportCircle.gd" type="Script" id=2]
+[ext_resource path="res://objects/2d/CircleElectricField2D.gd" type="Script" id=3]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 1.0
+
+[sub_resource type="ViewportTexture" id=2]
+viewport_path = NodePath("ViewportCircle")
+
+[node name="CircleElectricField2D" instance=ExtResource( 1 )]
+position = Vector2( 203, 155 )
+script = ExtResource( 3 )
+strength = 1.0
+radius = 128.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+shape = SubResource( 1 )
+
+[node name="ViewportCircle" type="Viewport" parent="." index="1"]
+script = ExtResource( 2 )
+
+[node name="Light2D" type="Light2D" parent="." index="2"]
+texture = SubResource( 2 )
+mode = 2
+
+[node name="Arrows" parent="." index="3"]
+arrow_centered = true

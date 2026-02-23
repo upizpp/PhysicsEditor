@@ -1,0 +1,67 @@
+extends Node
+
+
+signal camera_detach
+
+
+const WindowSize = Vector2(1280, 640)
+
+
+# 1gs = 1s * DecelerationRatio (game seconds)
+var UpdateFrequency := 10
+var DecelerationRatio := 0.2
+
+var current_camera: Camera2D
+
+var editor_scene := []
+var editor_variables := {}
+
+var editor: Editor
+
+var target_file: String
+
+func _ready() -> void:
+	var args := OS.get_cmdline_args()
+	if not args.empty() and args[0].ends_with("json"):
+		target_file = args[0]
+		get_tree().change_scene("res://objects/2d/editor/ScenePlayer.tscn")
+
+func load_file(path: String) -> String:
+	target_file = path
+	var data = SceneReader.read(path)
+	if not data[0].empty():
+		return data[0]
+	editor_scene = data[1]
+	editor_variables = data[2]
+	
+	if editor_variables.has("UpdateFrequency"):
+		UpdateFrequency = editor_variables["UpdateFrequency"]
+	elif editor_variables.has("UF"):
+		UpdateFrequency = editor_variables["UF"]
+	if editor_variables.has("DecelerationRatio"):
+		DecelerationRatio = editor_variables["DecelerationRatio"]
+	elif editor_variables.has("DR"):
+		DecelerationRatio = editor_variables["DR"]
+	
+	return ""
+
+func eval_property(pattern: String) -> Array:
+	var expr := Expression.new()
+	var err := expr.parse(pattern, editor_variables.keys())
+	if err != OK:
+		return [err, null]
+	return [OK, expr.execute(editor_variables.values())]
+
+func change_variant(property: String, value) -> void:
+	editor_variables[property] = value
+	if value is int or value is float:
+		if property == "UpdateFrequency" or property == "UF":
+			UpdateFrequency = value
+		elif property == "DecelerationRatio" or property == "DR":
+			DecelerationRatio = value
+
+func to_editable(value) -> String:
+	if value is String:
+		return value
+	else:
+		return var2str(value)

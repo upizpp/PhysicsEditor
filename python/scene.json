@@ -1,0 +1,500 @@
+{
+	"variables": {
+		"B": "5.0",
+		"q": "1.0"
+	},
+	"scene": [
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(200.0, 0.0)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(196.1570560806461, 39.01806440322565)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(184.77590650225736, 76.53668647301795)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(166.29392246050904, 111.11404660392043)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(141.4213562373095, 141.4213562373095)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(111.11404660392046, 166.29392246050904)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(76.53668647301797, 184.77590650225736)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(39.018064403225665, 196.1570560806461)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(1.2246467991473532e-14, 200.0)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(-39.01806440322564, 196.1570560806461)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(-76.53668647301795, 184.77590650225736)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(-111.11404660392039, 166.29392246050907)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(-141.42135623730948, 141.4213562373095)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(-166.29392246050907, 111.11404660392043)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(-184.77590650225736, 76.53668647301798)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(-196.1570560806461, 39.01806440322572)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(-200.0, 2.4492935982947064e-14)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(-196.1570560806461, -39.01806440322567)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(-184.77590650225736, -76.53668647301794)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(-166.2939224605091, -111.11404660392039)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(-141.42135623730954, -141.42135623730948)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(-111.11404660392043, -166.29392246050904)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(-76.53668647301807, -184.7759065022573)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(-39.018064403225736, -196.15705608064607)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(-3.6739403974420595e-14, -200.0)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(39.01806440322566, -196.1570560806461)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(76.536686473018, -184.77590650225733)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(111.11404660392037, -166.2939224605091)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(141.42135623730948, -141.42135623730954)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(166.29392246050904, -111.11404660392043)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(184.7759065022573, -76.53668647301808)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_object",
+			"type": "object",
+			"properties": {
+				"mass": "2.0",
+				"charge": "q",
+				"position": "Vector2(640, 320)",
+				"velocity": "Vector2(196.15705608064607, -39.01806440322574)",
+				"track": {
+					"default_color": "Color(0, 0, 0)"
+				},
+				"radius": "8.0"
+			},
+			"__bind__": null
+		},
+		{
+			"name": "my_magnetic_field",
+			"type": "magnetic",
+			"shape": "matrix",
+			"properties": {
+				"strength": "B",
+				"direction": "1.0",
+				"position": "Vector2(640, 320)",
+				"size": "Vector2(1280, 640)"
+			},
+			"__bind__": null
+		}
+	]
+}

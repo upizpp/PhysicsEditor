@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://objects/2d/editor/PropertyEditor.gd" type="Script" id=1]
+[ext_resource path="res://objects/2d/editor/FoldableContainer.tscn" type="PackedScene" id=2]
+
+[node name="PropertyEditor" type="PanelContainer"]
+anchor_bottom = 1.0
+margin_right = 255.0
+script = ExtResource( 1 )
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 248.0
+margin_bottom = 633.0
+
+[node name="FoldableContainer" parent="ScrollContainer" instance=ExtResource( 2 )]
+visible = false
+anchor_right = 0.0
+margin_right = 241.0
+margin_bottom = 626.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
