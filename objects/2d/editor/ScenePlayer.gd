@@ -75,9 +75,12 @@ func create(scene: Array, variables: Dictionary):
 						if arg[0] != OK:
 							continue
 						data["properties"][property] = arg[1]
-						print(data["properties"][property])
 					for p in data["properties"][property]:
 						tracker.set(p, data["properties"][property][p])
+				elif property == "gravitation":
+					obj.add_child(GravitationField2D.new())
+				elif property == "coulomb":
+					obj.add_child(CoulombFieldField2D.new())
 				else:
 					if data["properties"][property] is String:
 						expr.parse(data["properties"][property], variables.keys())
