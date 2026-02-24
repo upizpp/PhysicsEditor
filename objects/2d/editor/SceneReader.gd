@@ -29,7 +29,6 @@ static func read(path: String) -> Array:
 			return ["意外的scene类型，期望为Array。"]
 		scene = data["scene"]
 	file.close()
-	variables = parse_variables(variables)
 	return ["", scene, variables]
 
 static func parse_variables(variables: Dictionary) -> Dictionary:

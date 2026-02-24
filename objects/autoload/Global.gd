@@ -15,6 +15,7 @@ var current_camera: Camera2D
 
 var editor_scene := []
 var editor_variables := {}
+var editor_variables_parsed := {}
 
 var editor: Editor
 
@@ -33,27 +34,31 @@ func load_file(path: String) -> String:
 		return data[0]
 	editor_scene = data[1]
 	editor_variables = data[2]
+	editor_variables_parsed = SceneReader.parse_variables(editor_variables.duplicate(false))
 	
-	if editor_variables.has("UpdateFrequency"):
-		UpdateFrequency = editor_variables["UpdateFrequency"]
-	elif editor_variables.has("UF"):
-		UpdateFrequency = editor_variables["UF"]
-	if editor_variables.has("DecelerationRatio"):
-		DecelerationRatio = editor_variables["DecelerationRatio"]
-	elif editor_variables.has("DR"):
-		DecelerationRatio = editor_variables["DR"]
+	if editor_variables_parsed.has("UpdateFrequency"):
+		UpdateFrequency = editor_variables_parsed["UpdateFrequency"]
+	elif editor_variables_parsed.has("UF"):
+		UpdateFrequency = editor_variables_parsed["UF"]
+	if editor_variables_parsed.has("DecelerationRatio"):
+		DecelerationRatio = editor_variables_parsed["DecelerationRatio"]
+	elif editor_variables_parsed.has("DR"):
+		DecelerationRatio = editor_variables_parsed["DR"]
 	
 	return ""
 
 func eval_property(pattern: String) -> Array:
 	var expr := Expression.new()
-	var err := expr.parse(pattern, editor_variables.keys())
+	var err := expr.parse(pattern, editor_variables_parsed.keys())
 	if err != OK:
 		return [err, null]
-	return [OK, expr.execute(editor_variables.values())]
+	return [OK, expr.execute(editor_variables_parsed.values())]
 
 func change_variant(property: String, value) -> void:
 	editor_variables[property] = value
+	var arr := eval_property(value)
+	if arr[0] == OK:
+		editor_variables_parsed[property] = arr[1]
 	if value is int or value is float:
 		if property == "UpdateFrequency" or property == "UF":
 			UpdateFrequency = value

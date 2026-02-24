@@ -20,7 +20,7 @@ func load_scene(path: String) -> void:
 	if not msg.empty():
 		push_text(msg)
 		return
-	create(Global.editor_scene, Global.editor_variables)
+	create(Global.editor_scene, Global.editor_variables_parsed)
 
 const ObjectTypes = {
 	"object": preload("res://objects/2d/PhysicsObject2D.tscn"),
