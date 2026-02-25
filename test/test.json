@@ -35,6 +35,16 @@
 				}
 			},
 			"__bind__": null
+		},
+		{
+			"name": "aaa",
+			"type": "baffle",
+			"properties": {
+				"position": "Vector2( 547, 438 )",
+				"size": "Vector2( 470, 12 )"
+			},
+			"shape": "matrix",
+			"__bind__": null
 		}
 	]
 }

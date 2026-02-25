@@ -51,6 +51,13 @@ func add() -> void:
 	item_list.set_item_metadata(item_list.get_item_count() - 1, obj)
 	name_edit.text = ""
 
+func select(index: int) -> void:
+	item_list.select(index)
+	_on_ItemList_item_selected(index)
+
+func rename(index: int, new_name: String) -> void:
+	item_list.set_item_text(index, new_name)
+
 func get_data(index: int) -> Dictionary:
 	return item_list.get_item_metadata(index)
 

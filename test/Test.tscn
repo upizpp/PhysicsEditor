@@ -10,6 +10,7 @@ viewport_path = NodePath("Viewport")
 light_mode = 2
 
 [node name="Test" type="Node2D"]
+rotation = 0.506145
 
 [node name="Viewport" type="Viewport" parent="."]
 size = Vector2( 640, 480 )
@@ -29,3 +30,7 @@ mode = 2
 material = SubResource( 1 )
 position = Vector2( 491, 246 )
 texture = ExtResource( 2 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 40.0
+margin_bottom = 40.0

@@ -21,7 +21,7 @@ func get_collision_shape() -> CollisionShape2D:
 	return shape
 
 func _draw() -> void:
-	draw_rect(Rect2(-size * 0.5, size), Color.snow, false)
+	draw_rect(Rect2(-size * 0.5, size), Color.snow, true)
 	draw_rect(Rect2(-size * 0.5, size), Color.black, false, 1.5, true)
 	var texture: Texture = preload("res://assets/textures/cross.png") if direction == DIR.CROSS else preload("res://assets/textures/dot.png")
 	for x in range(Margin.x, size.x - Margin.x + 1, Interval):

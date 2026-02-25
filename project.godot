@@ -156,6 +156,8 @@ config/name="PhysicsEditor"
 run/main_scene="res://objects/2d/editor/Editor.tscn"
 config/icon="res://icon.png"
 config/windows_native_icon="res://icon.ico"
+config/auto_accept_quit=false
+config/quit_on_go_back=false
 
 [autoload]
 

@@ -19,7 +19,7 @@ func get_collision_shape() -> CollisionShape2D:
 	return shape
 
 func _draw() -> void:
-	draw_rect(Rect2(-size * 0.5, size), Color.snow, false)
+	draw_rect(Rect2(-size * 0.5, size), Color.snow, true)
 	var s := size - Vector2(2, 2)
 	draw_rect(Rect2(-s * 0.5, s), Color.black, false, 1.5, true)
 	arrows.update()

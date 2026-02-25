@@ -1,5 +1,6 @@
 extends PanelContainer
 
+signal object_renamed(new_name, object)
 
 onready var container: FoldableContainer = $ScrollContainer/FoldableContainer
 
@@ -11,14 +12,14 @@ func load_object(object: Dictionary) -> void:
 	container.unfold()
 	clear()
 	container.show()
-	edit(object, container, object["__bind__"])
+	edit(object, container, object["__bind__"], true)
 
 func clear() -> void:
 	container.hide()
 	for c in container.container.get_children():
 		c.queue_free()
 
-func edit(object: Dictionary, base: FoldableContainer, bind: Node2D) -> void:
+func edit(object: Dictionary, base: FoldableContainer, bind: Node2D, first: bool = false) -> void:
 	base.object = object
 	base.bind = bind
 	for property in object:
@@ -31,4 +32,10 @@ func edit(object: Dictionary, base: FoldableContainer, bind: Node2D) -> void:
 			base.container.add_child(container)
 			edit(object[property], container, bind)
 		else:
-			base.add(property).value = Global.to_editable(object[property])
+			var obj := base.add(property)
+			obj.value = Global.to_editable(object[property])
+			if first and property == "name":
+				obj.connect("changed", self, "_on_name_changed", [object])
+
+func _on_name_changed(new_name: String, obj: Dictionary) -> void:
+	emit_signal("object_renamed", new_name, obj)

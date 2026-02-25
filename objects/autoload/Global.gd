@@ -47,12 +47,24 @@ func load_file(path: String) -> String:
 	
 	return ""
 
+func save_file(path: String) -> void:
+	if path.empty():
+		printerr("未打开文件，保存失败。")
+		return
+	var file = File.new()
+	file.open(path, File.WRITE)
+	file.store_string(SceneReader.var2json({
+		"variables": editor_variables.duplicate(true),
+		"scene": editor_scene.duplicate(true)
+	}))
+	file.close()
+
 func eval_property(pattern: String) -> Array:
 	var expr := Expression.new()
 	var err := expr.parse(pattern, editor_variables_parsed.keys())
 	if err != OK:
 		return [err, null]
-	return [OK, expr.execute(editor_variables_parsed.values())]
+	return [OK, expr.execute(editor_variables_parsed.values(), null, false)]
 
 func change_variant(property: String, value) -> void:
 	editor_variables[property] = value
@@ -70,3 +82,12 @@ func to_editable(value) -> String:
 		return value
 	else:
 		return var2str(value)
+
+func quit() -> void:
+	if not target_file.empty():
+		save_file(target_file)
+	get_tree().quit()
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_WM_QUIT_REQUEST or what == NOTIFICATION_WM_GO_BACK_REQUEST:
+		quit()

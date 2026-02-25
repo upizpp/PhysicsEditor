@@ -2,6 +2,7 @@ extends Node2D
 
 signal move(position)
 signal resize(radius)
+signal clicked
 
 export var radius: float = 64.0 setget set_radius
 export var scaleable: bool = true setget set_scaleable
@@ -87,3 +88,4 @@ func _on_gui_input(event: InputEvent, which: int) -> void:
 		initial_radius = radius
 		initial_position = position
 		which_area = which
+		emit_signal("clicked")

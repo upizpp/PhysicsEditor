@@ -20,6 +20,8 @@ func load_scene(path: String) -> void:
 	if not msg.empty():
 		push_text(msg)
 		return
+	var camera := ControlableCamera2D.new()
+	add_child(camera)
 	create(Global.editor_scene, Global.editor_variables_parsed)
 
 const ObjectTypes = {
@@ -60,7 +62,6 @@ func create(scene: Array, variables: Dictionary):
 			return
 		
 		add_child(obj)
-		var expr = Expression.new()
 		if data.has("properties"):
 			if typeof(data["properties"]) != TYPE_DICTIONARY:
 				push_text("意外的object类型，properties字段必须是Dictionary。")
@@ -87,10 +88,11 @@ func create(scene: Array, variables: Dictionary):
 					obj.add_child(x)
 				else:
 					if data["properties"][property] is String:
-						expr.parse(data["properties"][property], variables.keys())
-						obj.set(property, expr.execute(variables.values()))
-					else:
-						obj.set(property, data["properties"][property])
+						var arg := Global.eval_property(data["properties"][property])
+						if arg[0] != OK:
+							continue
+						data["properties"][property] = arg[1]
+					obj.set(property, data["properties"][property])
 
 func read(data: Dictionary, key: String, expected: int, type: String):
 	if not data.has(key):

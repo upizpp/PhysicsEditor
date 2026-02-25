@@ -2,16 +2,20 @@ extends Node2D
 
 signal move(position)
 signal resize(scale)
+signal clicked
 
 const Width = 8
 
 export var size := Vector2(128, 128) setget _set_size
 export var scaleable: bool = true setget set_scaleable
+export var lock_y := 0.0
 
 var bind: Dictionary
 
 func _set_size(v: Vector2) -> void:
 	size = v
+	if not is_zero_approx(lock_y):
+		size.y = lock_y
 	update()
 	if not is_inside_tree():
 		yield(self, "ready")
@@ -78,11 +82,13 @@ var initial_size := Vector2.ZERO
 var initial_position := Vector2.ZERO
 
 func emit_resize() -> void:
-	bind["properties"]["size"] = size
+	if bind:
+		bind["properties"]["size"] = size
 	emit_signal("resize", size)
 
 func emit_move() -> void:
-	bind["properties"]["position"] = position
+	if bind:
+		bind["properties"]["position"] = position
 	emit_signal("move", position)
 
 func _input(event: InputEvent) -> void:
@@ -93,35 +99,39 @@ func _input(event: InputEvent) -> void:
 	if dragging and event is InputEventMouseMotion:
 		match which_area:
 			UP:
+				if not is_zero_approx(lock_y):
+					return
 				if not scaleable:
 					return
-				var delta: float = (source - event.global_position).y / get_global_transform().get_scale().y
+				var delta: float = (source - event.global_position).rotated(-rotation).y / get_global_transform().get_scale().y
 				self.size.y = initial_size.y + delta
-				position.y = initial_position.y - delta / 2.0
+				position = initial_position + Vector2.UP.rotated(rotation) * delta / 2.0
 				emit_move()
 				emit_resize()
 			DOWN:
+				if not is_zero_approx(lock_y):
+					return
 				if not scaleable:
 					return
-				var delta: float = (source - event.global_position).y / get_global_transform().get_scale().y
+				var delta: float = (source - event.global_position).rotated(-rotation).y / get_global_transform().get_scale().y
 				self.size.y = initial_size.y - delta
-				position.y = initial_position.y - delta / 2.0
+				position = initial_position + Vector2.UP.rotated(rotation) * delta / 2.0
 				emit_move()
 				emit_resize()
 			LEFT:
 				if not scaleable:
 					return
-				var delta: float = (source - event.global_position).x / get_global_transform().get_scale().x
+				var delta: float = (source - event.global_position).rotated(-rotation).x / get_global_transform().get_scale().x
 				self.size.x = initial_size.x + delta
-				position.x = initial_position.x - delta / 2.0
+				position = initial_position + Vector2.LEFT.rotated(rotation) * delta / 2.0
 				emit_move()
 				emit_resize()
 			RIGHT:
 				if not scaleable:
 					return
-				var delta: float = (source - event.global_position).x / get_global_transform().get_scale().x
+				var delta: float = (source - event.global_position).rotated(-rotation).x / get_global_transform().get_scale().x
 				self.size.x = initial_size.x - delta
-				position.x = initial_position.x - delta / 2.0
+				position = initial_position + Vector2.LEFT.rotated(rotation) * delta / 2.0
 				emit_move()
 				emit_resize()
 			MOVE:
@@ -140,3 +150,4 @@ func _on_gui_input(event: InputEvent, which: int) -> void:
 		initial_size = size
 		initial_position = position
 		which_area = which
+		emit_signal("clicked")

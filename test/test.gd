@@ -15,7 +15,7 @@ func _run() -> void:
 	}
 	SceneReader.parse_variables(variables)
 	
-#	save_icon("ResourcePreloader")
+	save_icon("Close")
 
 func save_icon(what: String) -> void:
 	var theme := get_editor_interface().get_base_control().theme

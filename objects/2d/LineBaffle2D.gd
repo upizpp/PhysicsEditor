@@ -5,9 +5,9 @@ const Width = 12.0
 
 export var length := 128.0 setget set_length
 
-var size := Vector2(length, Width)
+var size := Vector2(length, Width) setget set_size
 
-func set_length(v: float):
+func set_length(v: float) -> void:
 	length = v
 	size = Vector2(length, Width)
 	if not shape:
@@ -15,11 +15,14 @@ func set_length(v: float):
 	shape.scale = size
 	update()
 
+func set_size(v: Vector2) -> void:
+	self.length = v.x
+
 onready var shape: CollisionShape2D = $CollisionShape2D
 
 func get_normal(obj: PhysicsObject2D) -> Vector2:
 	return Vector2.UP.rotated(rotation)
 
 func _draw() -> void:
-	draw_rect(Rect2(-size * 0.5, size), Color.snow, false)
+	draw_rect(Rect2(-size * 0.5, size), Color.snow, true)
 	draw_rect(Rect2(-size * 0.5, size), Color.black, false, 1.5, true)

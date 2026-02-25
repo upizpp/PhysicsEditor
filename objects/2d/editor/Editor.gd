@@ -40,20 +40,8 @@ func load_file(path: String) -> String:
 	
 	return ""
 
-func save_file(path: String) -> void:
-	if path.empty():
-		printerr("未打开文件，保存失败。")
-		return
-	var file = File.new()
-	file.open(path, File.WRITE)
-	file.store_string(SceneReader.var2json({
-		"variables": Global.editor_variables.duplicate(true),
-		"scene": Global.editor_scene.duplicate(true)
-	}))
-	file.close()
-
 func run() -> void:
-	save_file(Global.target_file)
+	Global.save_file(Global.target_file)
 	get_tree().change_scene("res://objects/2d/editor/ScenePlayer.tscn")
 
 
@@ -68,7 +56,7 @@ func _on_Run_pressed() -> void:
 	run()
 
 func _on_Save_pressed() -> void:
-	save_file(Global.target_file)
+	Global.save_file(Global.target_file)
 
 enum {
 	NEW,
@@ -108,5 +96,14 @@ func _on_FileDialog_file_selected(path: String) -> void:
 				warning_dialog.dialog_text = msg
 				warning_dialog.popup_centered_ratio(0.25)
 		SAVE_TO:
-			save_file(path)
+			Global.save_file(path)
 			Global.target_file = path
+
+func _on_Close_pressed() -> void:
+	Global.quit()
+
+func _on_ScenePreview_clicked(object: Dictionary) -> void:
+	scene_editor.select(Global.editor_scene.find(object))
+
+func _on_PropertyEditor_object_renamed(new_name: String, object: Dictionary) -> void:
+	scene_editor.rename(Global.editor_scene.find(object), new_name)

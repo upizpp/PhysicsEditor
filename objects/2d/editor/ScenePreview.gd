@@ -1,5 +1,7 @@
 extends Control
 
+signal clicked(object)
+
 onready var preview: Node2D = $Preview
 
 func _ready() -> void:
@@ -34,8 +36,8 @@ func clear() -> void:
 
 func load_scene(scene: Array) -> void:
 	clear()
-	for object in scene:
-		create_object(object)
+	for obj in scene:
+		create_object(obj)
 
 func create_object(object: Dictionary) -> void:
 	if object.has("type") and object["type"] == "object":
@@ -49,11 +51,14 @@ func create_object(object: Dictionary) -> void:
 		obj.scaleable = false
 		obj.radius = 8
 		obj.bind = object
+		obj.connect("clicked", self, "_on_object_clicked", [object])
 		preview.add_child(obj)
 		object["__bind__"] = obj
 	if object.has("shape"):
 		if object["shape"] == "matrix":
 			var obj := preload("res://objects/2d/editor/MatrixEditor.tscn").instance()
+			if object.has("type") and object["type"] == "baffle":
+				obj.lock_y = LineBaffle2D.Width
 			if object.has("properties"):
 				for property in object["properties"]:
 					var value = object["properties"][property]
@@ -61,6 +66,7 @@ func create_object(object: Dictionary) -> void:
 						value = Global.eval_property(value)[1]
 					obj.set(property, value)
 			obj.bind = object
+			obj.connect("clicked", self, "_on_object_clicked", [object])
 			preview.add_child(obj)
 			object["__bind__"] = obj
 		elif object["shape"] == "circle":
@@ -72,5 +78,9 @@ func create_object(object: Dictionary) -> void:
 						value = Global.eval_property(value)[1]
 					obj.set(property, value)
 			obj.bind = object
+			obj.connect("clicked", self, "_on_object_clicked", [object])
 			preview.add_child(obj)
 			object["__bind__"] = obj
+
+func _on_object_clicked(object: Dictionary):
+	emit_signal("clicked", object)
