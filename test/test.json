@@ -16,11 +16,11 @@
 			"properties": {
 				"position": "Vector2( 640, 320 )",
 				"size": "Vector2( 1280, 640 )",
-				"strength": "B",
+				"strength": "1.0",
 				"direction": "1"
 			},
 			"shape": "matrix",
-			"__bind__": null
+			"__bind__": "null"
 		},
 		{
 			"name": "test",
@@ -28,13 +28,13 @@
 			"properties": {
 				"radius": "8.0",
 				"position": "Vector2( 369, 164 )",
-				"velocity": "Vector2( v, 0 )",
-				"charge": "q",
+				"velocity": "Vector2( 200, 0 )",
+				"charge": "1.0",
 				"track": {
 					"default_color": "Color(0.0,0.0,0.0)"
 				}
 			},
-			"__bind__": null
+			"__bind__": "null"
 		},
 		{
 			"name": "aaa",
@@ -44,7 +44,7 @@
 				"size": "Vector2( 470, 12 )"
 			},
 			"shape": "matrix",
-			"__bind__": null
+			"__bind__": "null"
 		}
 	]
 }

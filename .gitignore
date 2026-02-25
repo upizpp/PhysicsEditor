@@ -1,5 +1,6 @@
 .import
 .vscode
+*.zip
 *.exe
 *.pck
 .VSCodeCounter

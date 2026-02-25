@@ -6,6 +6,12 @@ onready var text: Control = $Text
 func _ready() -> void:
 	get_tree().set_screen_stretch(SceneTree.STRETCH_MODE_2D, SceneTree.STRETCH_ASPECT_KEEP, Global.WindowSize)
 	load_scene(Global.target_file)
+	
+	get_tree().connect("files_dropped", self, "_on_files_dropped")
+
+func _on_files_dropped(files: PoolStringArray, screen: int) -> void:
+	load_scene(files[0])
+
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("return"):

@@ -18,6 +18,8 @@ func _ready() -> void:
 	Global.editor = self
 	if not Global.target_file.empty():
 		load_file(Global.target_file)
+	
+	get_tree().connect("files_dropped", self, "_on_files_dropped")
 
 func clear() -> void:
 	Global.editor_scene.clear()
@@ -44,6 +46,9 @@ func run() -> void:
 	Global.save_file(Global.target_file)
 	get_tree().change_scene("res://objects/2d/editor/ScenePlayer.tscn")
 
+
+func _on_files_dropped(files: PoolStringArray, screen: int) -> void:
+	load_file(files[0])
 
 func _on_SceneEditor_select(index: int) -> void:
 	property_editor.load_object(scene_editor.get_data(index))
