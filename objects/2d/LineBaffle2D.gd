@@ -1,7 +1,7 @@
 extends Baffle2D
 class_name LineBaffle2D
 
-const Width = 12.0
+const Width = 8.0
 
 export var length := 128.0 setget set_length
 
@@ -13,6 +13,7 @@ func set_length(v: float) -> void:
 	if not shape:
 		yield(self, "ready")
 	shape.scale = size
+	shape.scale.y = 1.0
 	update()
 
 func set_size(v: Vector2) -> void:

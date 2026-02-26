@@ -31,7 +31,7 @@
 				"velocity": "Vector2( 200, 0 )",
 				"charge": "1.0",
 				"track": {
-					"default_color": "Color(0.0,0.0,0.0)"
+					"default_color": "Color( 1, 0, 0, 1 )"
 				}
 			},
 			"__bind__": "null"

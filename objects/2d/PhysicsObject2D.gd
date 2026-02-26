@@ -48,7 +48,8 @@ func field_enforce() -> void:
 			if field.is_colliding(self):
 				fields.push_back(field)
 	for field in fields:
-		field.enforce(self)
+		if is_instance_valid(field):
+			field.enforce(self)
 
 func _physics_process(delta: float) -> void:
 	for i in Global.UpdateFrequency:

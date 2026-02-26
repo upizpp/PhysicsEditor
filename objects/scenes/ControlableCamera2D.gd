@@ -14,7 +14,6 @@ export var zoom_down_action := "zoom_down"
 export var speed := 500.0
 
 func _ready() -> void:
-	offset = get_viewport_rect().size * 0.5
 	rotating = true
 	make_current()
 	Global.current_camera = self

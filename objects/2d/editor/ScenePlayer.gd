@@ -21,13 +21,13 @@ func load_scene(path: String) -> void:
 	for c in get_children():
 		if c != text:
 			c.queue_free()
+	for c in text.get_children():
+		c.queue_free()
 	
 	var msg: String = Global.load_file(path)
 	if not msg.empty():
 		push_text(msg)
 		return
-	var camera := ControlableCamera2D.new()
-	add_child(camera)
 	create(Global.editor_scene, Global.editor_variables_parsed)
 
 const ObjectTypes = {
@@ -79,10 +79,13 @@ func create(scene: Array, variables: Dictionary):
 					add_child(tracker)
 					if data["properties"][property] is String:
 						var arg := Global.eval_property(data["properties"][property])
-						if arg[0] != OK:
-							continue
-						data["properties"][property] = arg[1]
+						if arg[0] == OK:
+							data["properties"][property] = arg[1]
 					for p in data["properties"][property]:
+						if data["properties"][property][p] is String:
+							var arg := Global.eval_property(data["properties"][property][p])
+							if arg[0] == OK:
+								data["properties"][property][p] = arg[1]
 						tracker.set(p, data["properties"][property][p])
 				elif property == "gravitation":
 					var x := GravitationField2D.new()

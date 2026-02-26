@@ -16,7 +16,8 @@ func set_target(v: NodePath) -> void:
 
 func _init() -> void:
 	width = 2.0
-	z_index += 1
+	z_index += 2
+	antialiased = true
 
 func _process(delta: float) -> void:
 	if not target_node:
